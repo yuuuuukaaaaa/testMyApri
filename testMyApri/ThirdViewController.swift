@@ -13,6 +13,7 @@ class ThirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var myTableView: UITableView!
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     //    データを配列で用意する（メンバ変数　どこでも使える変数！）
     var foodArray = ["ダージリン","アッサム","アールグレイ","ロイヤル・ブレックファースト"]
