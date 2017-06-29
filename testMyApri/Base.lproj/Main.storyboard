@@ -33,6 +33,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="uWl-GP-uHG" kind="show" id="HhW-na-1qi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -47,7 +50,7 @@
                                     <navigationItem title="食材リスト" id="JJP-wK-78o">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="okM-zO-stJ">
                                             <connections>
-                                                <action selector="addButton:" destination="9pv-A4-QxB" id="5oC-HW-HdM"/>
+                                                <action selector="buttonTouch:" destination="9pv-A4-QxB" id="eH0-Fi-7RN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -61,9 +64,8 @@
                     <navigationItem key="navigationItem" title="Title" id="hYI-Sz-hdM"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="okM-zO-stJ" id="ciX-83-k5R"/>
+                        <outlet property="addButton" destination="okM-zO-stJ" id="sbN-e7-MuT"/>
                         <outlet property="myPickerView" destination="Syp-d7-Mfv" id="m5S-Zb-lWV"/>
-                        <segue destination="uWl-GP-uHG" kind="show" id="w4i-Xq-tRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -171,7 +173,7 @@
         <!--買出し-->
         <scene sceneID="nnU-7c-U16">
             <objects>
-                <viewController id="ZXU-Kc-zM5" customClass="ThirdViewController" customModule="testMyApri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZXU-Kc-zM5" customClass="ThirdViewController" customModule="testMyApri" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Nf-Aa-AmZ"/>
                         <viewControllerLayoutGuide type="bottom" id="b4f-GF-vLg"/>
@@ -189,37 +191,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f62-O3-BAG">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Oa4-ps-29C">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oa4-ps-29C" id="VWx-s7-XC6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="ZXU-Kc-zM5" id="WEZ-gM-cyT"/>
-                                    <outlet property="delegate" destination="ZXU-Kc-zM5" id="Y9g-O4-6oH"/>
-                                </connections>
-                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ntC-xU-LsH">
+                                <rect key="frame" x="0.0" y="72" width="373" height="546"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IgN-Zy-x3N">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="546"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ZAw-UZ-cgZ">
+                                                <rect key="frame" x="0.0" y="28" width="373" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZAw-UZ-cgZ" id="aIH-Tp-XCJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="TLf-nZ-Ttx" kind="show" id="ncc-LW-gvS"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="ntC-xU-LsH" id="coG-0J-dWs"/>
+                                            <outlet property="delegate" destination="ntC-xU-LsH" id="beK-E8-hc6"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="f62-O3-BAG" secondAttribute="trailing" id="bVx-dZ-ade"/>
-                            <constraint firstItem="f62-O3-BAG" firstAttribute="leading" secondItem="LMt-0r-wlQ" secondAttribute="leading" id="mFB-Ce-FMQ"/>
-                            <constraint firstItem="b4f-GF-vLg" firstAttribute="top" secondItem="f62-O3-BAG" secondAttribute="bottom" id="wrB-GP-LSF"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="買出し" image="Image-2" selectedImage="Image-2" id="ZIk-28-cGM"/>
                     <connections>
                         <outlet property="addButton" destination="AN8-3m-zDk" id="5mt-am-In7"/>
-                        <outlet property="myTableView" destination="f62-O3-BAG" id="BoZ-38-cXa"/>
-                        <segue destination="TLf-nZ-Ttx" kind="show" id="IzX-Xg-nY3"/>
+                        <outlet property="myTableView" destination="IgN-Zy-x3N" id="Yu4-J4-xTa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2az-W1-p6D" userLabel="First Responder" sceneMemberID="firstResponder"/>

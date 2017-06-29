@@ -58,7 +58,7 @@ class ThirdViewController: UIViewController,UITableViewDataSource,UITableViewDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //次の画面をインスタンス化(as:ダウンキャスト型変換)
         
-       // var dvc = segue.destination as ditailViewController
+        //var dvc = segue.destination as ditailViewController
         
         //次の画面のプロパティに選択された行番号を指定
       //  dvc.sIndex = selectedIndex

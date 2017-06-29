@@ -14,44 +14,32 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myPickerView: UITableView!
 
     @IBOutlet weak var addButton: UIBarButtonItem!
+   
+    //データを用意する（メンバ変数）
+    var foodArray = ["トマト","にんじん","じゃがいも"]
+    
+    //選択された行番号
+    var selectedIndex = -1
     
     override func viewDidLoad() {
-        myPickerView.delegate = self
-        myPickerView.dataSource = self
-        
-        
-    }
-
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        super.viewDidLoad()
     }
     
-////    self.インスタンスメソッド
-////
-////    delegate.インスタンスメソッド
-////
-////    インスタンス。いんすたんすめそっど
-////
-////    いんすたんす（UITableViewCellのインスタンス）
-////    いんすたんすめそっど（UITableViewCellくらすにていぎしてあるめそっど）
-//
-//    myPickerView.delegate.tableView(_ tableView: UITableView, )
-
+    //行数を設定
+    //INT ; 戻り値でデータ型はInt型ですという意味　ついているものは戻り値がある
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foodArray.count
+    }
+    
+    //リストに表示する文字列行数を決定表示
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-//        tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
-//       cell.accessoryType = UITableViewCellAccessoryType.checkmark
-//
-
-
+        cell.textLabel?.text = foodArray[indexPath.row]
+        
         return cell
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return 3
-    }
-
-    override func didReceiveMemoryWarning() {
+     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
